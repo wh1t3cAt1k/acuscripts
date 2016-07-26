@@ -8,4 +8,4 @@ Remove-Item $webConfigPath -ErrorAction SilentlyContinue
 Copy-Item ($webConfigDirectory + "Web.config_") $webConfigPath
 (Get-Content $webConfigPath) -replace "=debug50_3", "=$databaseName" | Set-Content $webConfigPath
 
-echo "Web config created"
+Write-Host "Web.config copied with database name $databaseName." -ForegroundColor Green

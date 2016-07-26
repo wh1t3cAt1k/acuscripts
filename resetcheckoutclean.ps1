@@ -11,4 +11,4 @@ git reset --hard
 git checkout $checkoutBranchName
 if ($pull) { git pull }
 
-echo "Checked out $checkoutBranchName and cleaned the binaries"
+Write-Host "Checked out $checkoutBranchName and cleaned the binaries." -ForegroundColor Green

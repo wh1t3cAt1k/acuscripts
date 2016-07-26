@@ -25,4 +25,4 @@
 Kill-With-Mercy devenv
 Kill-With-Mercy MSBuild
 
-echo "Stopped all VS and MSBuild processes"
+Write-Host "Stopped all Visual Studio and MSBuild processes." -ForegroundColor Green

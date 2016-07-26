@@ -19,9 +19,11 @@ cd $repositoryPath
 if (!$nobuild)
 {
     .\build_pure_and_net_tools.cmd
-    echo "Build completed"
+    Write-Host "NetTools and Pure solutions build completed." -ForegroundColor Green
 }
 else
 {
-    echo "Build skipped"
+    Write-Host "Build process skipped." -ForegroundColor Green
 }
+
+runvs pure
