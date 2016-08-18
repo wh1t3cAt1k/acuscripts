@@ -23,4 +23,4 @@ Copy-Item ($webConfigDirectory + "Web.config_") $webConfigPath
     -replace "(password|Pwd)=.*?;", ('$1='+"$pwd;") `
     | Set-Content $webConfigPath
 
-Write-Host "Web.config copied with database name $databaseName." -ForegroundColor Green
+Write-Host "Web.config copied with server '$server' and database name '$db'." -ForegroundColor Green
