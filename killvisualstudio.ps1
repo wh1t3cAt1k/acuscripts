@@ -1,23 +1,29 @@
 ﻿function Kill-With-Mercy
 {
     param([string] $processName, [int] $gracePeriod = 5)
-    $processHandle = Get-Process $processName -ErrorAction SilentlyContinue
 
-    if ($processHandle)
+    $processHandle = $null
+
+    do 
     {
-        # Try close process gracefully first
-        # -
-        $processHandle.CloseMainWindow()
+        $processHandle = Get-Process $processName -ErrorAction SilentlyContinue
 
-        # Kill after mercy has ended
-        # -
-        Sleep $gracePeriod
-        
-        if (!$processHandle.HasExited)
+        if ($processHandle)
         {
-            $processHandle | kill -Force
+            # Try close process gracefully first
+            # -
+            $processHandle.CloseMainWindow()
+
+            # Kill after mercy has ended
+            # -
+            Sleep $gracePeriod
+        
+            if (!$processHandle.HasExited)
+            {
+                $processHandle | kill -Force
+            }
         }
-    }
+    } while ($processHandle)
 }
 
 # Remove all processes that could prevent cleaning
