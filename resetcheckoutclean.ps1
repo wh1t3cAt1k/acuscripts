@@ -6,7 +6,7 @@ cd $repositoryPath
 
 # Clean everything, checkout the required branch
 # -
-git clean -xfd
+git clean -xfd -e $webConfigPath
 git reset --hard
 git checkout $checkoutBranchName
 if ($pull) { git pull }
